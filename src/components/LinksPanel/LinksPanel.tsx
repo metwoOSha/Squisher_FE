@@ -6,8 +6,7 @@ import { formatCount } from '@/helpers/pluralize';
 import { useScrollMask } from '@/hooks/useScrollMask';
 import type { LinkWithClicks } from '@/types/link.types';
 import cls from './LinksPanel.module.css';
-
-/** Enough placeholders to fill the panel without implying a real count. */
+
 const SKELETON_ROWS = [0, 1, 2];
 
 interface LinksPanelProps {

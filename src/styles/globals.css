@@ -207,8 +207,7 @@ input::placeholder {
         opacity: 1;
     }
 }
-
-/* Skeleton shimmer — a slow sheen across the placeholder blocks. */
+
 @keyframes sq-shimmer {
     from {
         background-position: 180% 0;

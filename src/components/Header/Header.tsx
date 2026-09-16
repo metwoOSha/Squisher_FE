@@ -14,11 +14,6 @@ interface HeaderProps {
 export default function Header({ accent, onPickAccent, onOpenAuth }: HeaderProps) {
     const { user, isLoading, handleLogout } = useAuth();
 
-    /*
-     * /auth/me decides between the menu and the sign-in button. Rendering nothing
-     * meanwhile collapsed the whole slot, so a placeholder of the same footprint
-     * holds the space and the header keeps its layout.
-     */
     const renderAccount = () => {
         if (isLoading) {
             return (

@@ -32,7 +32,6 @@ export default function PasswordField({ id, label, value, autoComplete, onChange
                     onChange={(event) => onChange(event.target.value)}
                 />
 
-                {/* tabIndex -1 keeps Tab going straight to the next field, as in most auth forms. */}
                 <button
                     type="button"
                     className={cls.toggle}

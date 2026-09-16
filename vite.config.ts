@@ -6,7 +6,6 @@ import path from 'node:path';
 const rootDir = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig(({ mode }) => {
-    /* .env files are not in process.env at config time — loadEnv reads them for us. */
     const env = loadEnv(mode, rootDir, '');
     const API_TARGET = env.VITE_API_URL || 'http://localhost:3000';
 
@@ -22,7 +21,6 @@ export default defineConfig(({ mode }) => {
                 '/api': {
                     target: API_TARGET,
                     changeOrigin: true,
-                    /* The backend scopes cookies to its own host; drop the domain so localhost keeps them. */
                     cookieDomainRewrite: '',
                     rewrite: (url) => url.replace(/^\/api/, ''),
                 },

@@ -10,11 +10,6 @@ interface ModalOverlayProps {
     width?: number;
 }
 
-/*
- * The backdrop is deliberately inert: these modals hold typed-in forms, and a
- * stray click outside used to throw the input away. Escape and the modal's own
- * close button are the ways out.
- */
 export default function ModalOverlay({ children, onClose, width = 392 }: ModalOverlayProps) {
     useEscapeKey(true, onClose);
     useLockBodyScroll(true);

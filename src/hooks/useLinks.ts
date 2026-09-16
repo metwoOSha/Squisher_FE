@@ -1,21 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
-import { createLink, getLinkStats, getMyLinks } from '@/api/Links.api';
+import { createLink, getMyLinks } from '@/api/Links.api';
 import { normalizeUrl } from '@/helpers/normalizeUrl';
-import type { Link, LinkWithClicks } from '@/types/link.types';
-
-/** GET /links carries no click counts, so they are pulled per link and merged in. */
-async function withClicks(links: Link[]): Promise<LinkWithClicks[]> {
-    return Promise.all(
-        links.map(async (link) => {
-            try {
-                const { totalClicks } = await getLinkStats(link.shortCode);
-                return { ...link, clicks: totalClicks };
-            } catch {
-                return { ...link, clicks: 0 };
-            }
-        })
-    );
-}
+import type { LinkWithClicks } from '@/types/link.types';
 
 export function useLinks() {
     const [links, setLinks] = useState<LinkWithClicks[]>([]);
@@ -24,11 +10,10 @@ export function useLinks() {
     const [error, setError] = useState<string | null>(null);
 
     const fetchLinks = useCallback(async () => {
-        /* Also runs on sign-in/out, where the list is swapped — show placeholders again. */
         setIsLoading(true);
 
         try {
-            setLinks(await withClicks(await getMyLinks()));
+            setLinks(await getMyLinks());
             setError(null);
         } catch (err) {
             setError(err instanceof Error ? err.message : 'Could not load your links');

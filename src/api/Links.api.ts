@@ -1,4 +1,4 @@
-import type { CreateLinkBody, Link, LinkStats } from '@/types/link.types';
+import type { CreateLinkBody, Link, LinkWithClicks } from '@/types/link.types';
 import { get, post } from './http';
 
 const LINKS = '/links';
@@ -8,12 +8,7 @@ export async function createLink(body: CreateLinkBody): Promise<Link> {
     return res.json();
 }
 
-export async function getMyLinks(): Promise<Link[]> {
+export async function getMyLinks(): Promise<LinkWithClicks[]> {
     const res = await get(LINKS);
-    return res.json();
-}
-
-export async function getLinkStats(shortCode: string): Promise<LinkStats> {
-    const res = await get(`${LINKS}/${shortCode}/stats`);
     return res.json();
 }
