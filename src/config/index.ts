@@ -1,8 +1,5 @@
 export const API_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:3000';
 
-/** The Vite dev server proxies /api -> API_URL, so the app is always same-origin. */
-export const API_PREFIX = '/api';
-
 export const SHORT_LINK_ORIGIN = import.meta.env.VITE_SHORT_LINK_ORIGIN ?? API_URL;
 
 /** Protocol-less form shown in the UI, e.g. "squish.li/". */

@@ -1,4 +1,4 @@
-import { API_PREFIX } from '@/config';
+import { API_URL } from '@/config';
 import { ApiError } from './ApiError';
 
 const STATUS_MESSAGES: Record<number, string> = {
@@ -26,7 +26,7 @@ async function handleResponse(res: Response): Promise<Response> {
 }
 
 export async function get(url: string): Promise<Response> {
-    const res = await fetch(`${API_PREFIX}${url}`, {
+    const res = await fetch(`${API_URL}${url}`, {
         method: 'GET',
         credentials: 'include',
     });
@@ -35,7 +35,7 @@ export async function get(url: string): Promise<Response> {
 }
 
 export async function post(url: string, body?: unknown): Promise<Response> {
-    const res = await fetch(`${API_PREFIX}${url}`, {
+    const res = await fetch(`${API_URL}${url}`, {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
