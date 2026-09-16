@@ -1,0 +1,59 @@
+.mark {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.bar {
+    background: var(--ink);
+}
+
+.bar:nth-child(1) {
+    width: 11px;
+    height: 22px;
+    border-radius: 6px;
+}
+
+.bar:nth-child(2) {
+    width: 7px;
+    height: 22px;
+    border-radius: 4px;
+    background: var(--accent);
+}
+
+.bar:nth-child(3) {
+    width: 4px;
+    height: 22px;
+    border-radius: 2px;
+}
+
+/* The pill-sized mark used inside the header's user button. */
+.compact {
+    gap: 2px;
+    padding: 5px 7px;
+    border-radius: var(--radius-pill);
+    background: var(--accent);
+}
+
+.compact .bar:nth-child(1) {
+    width: 4px;
+    height: 11px;
+    border-radius: 2px;
+    background: var(--ink);
+}
+
+.compact .bar:nth-child(2) {
+    width: 3px;
+    height: 11px;
+    border-radius: 1.5px;
+    background: var(--ink);
+    opacity: 0.6;
+}
+
+.compact .bar:nth-child(3) {
+    width: 2px;
+    height: 11px;
+    border-radius: 1px;
+    background: var(--ink);
+    opacity: 0.35;
+}

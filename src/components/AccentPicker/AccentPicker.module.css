@@ -1,0 +1,27 @@
+.picker {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: var(--border-ink);
+    border-radius: var(--radius-pill);
+    padding: 5px 8px;
+}
+
+.swatch {
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 0 0 1.5px rgba(31, 28, 25, 0.25);
+    transition:
+        box-shadow 0.16s ease,
+        transform 0.16s ease;
+}
+
+.swatch:hover {
+    transform: scale(1.14);
+}
+
+.active {
+    box-shadow: 0 0 0 2px var(--ink);
+}

@@ -1,0 +1,13 @@
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.wordmark {
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: -1.1px;
+    color: var(--ink);
+}

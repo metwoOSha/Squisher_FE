@@ -1,0 +1,24 @@
+/* Surface treatments shared by several components. */
+
+.paperCard {
+    background: var(--paper-card);
+    border: var(--border-ink);
+}
+
+.mono {
+    font-family: var(--font-mono);
+}
+
+/* The uppercase mono micro-label used for eyebrows, stat captions and field labels. */
+.microLabel {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

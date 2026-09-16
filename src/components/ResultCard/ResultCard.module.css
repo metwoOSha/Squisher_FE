@@ -1,0 +1,133 @@
+.card {
+    margin-bottom: 18px;
+    background: var(--paper-card);
+    border: var(--border-ink);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transform-origin: top center;
+    transition: transform 0.2s ease;
+    animation: sq-slide 0.42s var(--ease-slide) both;
+}
+
+.card:hover {
+    animation: sq-grow 0.2s ease forwards;
+}
+
+.bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: var(--accent);
+    padding: 9px 20px;
+}
+
+.barTitle {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--ink);
+}
+
+.barClicks {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--ink);
+}
+
+.body {
+    padding: 20px 24px 22px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.text {
+    min-width: 0;
+}
+
+.shortRow {
+    font-family: var(--font-mono);
+    font-size: 26px;
+    color: var(--ink);
+    word-break: break-all;
+}
+
+.short {
+    display: inline-block;
+    transform-origin: left center;
+    border-radius: var(--radius-sm);
+    padding: 2px 6px;
+    margin-left: -6px;
+    letter-spacing: -1.4px;
+    font-weight: 500;
+    background: transparent;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+/* Copy confirmation: the link gets marker-penned in the accent colour. */
+.shortCopied {
+    font-weight: 700;
+    background: var(--accent);
+    box-shadow: 0 3px 0 var(--ink);
+}
+
+.long {
+    margin-top: 7px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--ink-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 460px;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    flex: none;
+}
+
+.copy {
+    border: var(--border-ink);
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--paper-cream);
+    background: var(--ink);
+    padding: 13px 20px;
+    border-radius: 11px;
+    transition: opacity 0.16s ease;
+}
+
+.copy:hover {
+    opacity: 0.86;
+}
+
+.dismiss {
+    width: 44px;
+    border-radius: 11px;
+    background: var(--paper-sunken);
+    display: grid;
+    place-items: center;
+    color: var(--ink-muted);
+    transition:
+        background 0.16s ease,
+        color 0.16s ease;
+}
+
+.dismiss:hover {
+    background: var(--ink);
+    color: var(--paper-cream);
+}

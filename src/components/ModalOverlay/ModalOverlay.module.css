@@ -1,0 +1,21 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    background: rgba(31, 28, 25, 0.55);
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    animation: sq-fade 0.16s ease both;
+}
+
+.card {
+    width: 100%;
+    background: var(--paper-card);
+    border: var(--border-ink);
+    border-radius: 20px;
+    padding: 28px;
+    animation: sq-pop 0.2s ease both;
+    max-height: 100%;
+    overflow-y: auto;
+}

@@ -1,0 +1,209 @@
+/* ==========================================================================
+   Design tokens, taken 1:1 from Squisher.dc.html.
+   Components compose these variables and never hardcode colours or timings.
+   ========================================================================== */
+
+:root {
+    /* surfaces */
+    --paper: #efe8de;
+    --paper-card: #f7f3ec;
+    --paper-card-hover: #fdfaf4;
+    --paper-cream: #f6f1e9;
+    --paper-sunken: #e6ddd0;
+
+    /* ink */
+    --ink: #1f1c19;
+    --ink-deep: #151310;
+    --ink-muted: #6b6459;
+    --ink-faint: #a8a096;
+    --ink-placeholder: #8e857a;
+
+    /* borders */
+    --border-ink: 1.5px solid var(--ink);
+    --border-dark: #3b352f;
+    --border-divider: #322c26;
+    --border-light: #cfc4b4;
+    --border-dashed: #b3a897;
+
+    /* accent — runtime-swappable via the header swatches */
+    --accent: #d79a6f;
+
+    /* status */
+    --error: #e39a8e;
+    --error-strong: #b4503f;
+    --link: #8d5837;
+    --link-hover: #5f3a23;
+
+    /* radii */
+    --radius-sm: 5px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-xl: 26px;
+    --radius-pill: 999px;
+
+    /* typography */
+    --font-sans: Manrope, system-ui, sans-serif;
+    --font-display: 'Bricolage Grotesque', Manrope, sans-serif;
+    --font-serif: 'Instrument Serif', serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* motion */
+    --ease-slide: cubic-bezier(0.22, 0.9, 0.28, 1);
+    --ease-squish: cubic-bezier(0.3, 1.35, 0.4, 1);
+    --ease-squish-rest: cubic-bezier(0.3, 1.4, 0.4, 1);
+
+    /* layout */
+    --content-max: 1160px;
+    --panel-max: 380px;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    color: var(--ink);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: var(--link);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--link-hover);
+}
+
+button {
+    /* The design sets border:0 inline on every button; this is the same reset. */
+    border: 0;
+    padding: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
+
+input {
+    font-family: inherit;
+}
+
+input::placeholder {
+    color: var(--ink-placeholder);
+}
+
+/* ==========================================================================
+   Keyframes — copied verbatim from the design so timings stay identical.
+   ========================================================================== */
+
+@keyframes sq-pop {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes sq-grow {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.022);
+    }
+}
+
+@keyframes sq-mark {
+    from {
+        transform: scale(0.96);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes sq-toast {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes sq-slide {
+    0% {
+        opacity: 0;
+        transform: translateY(-22px) scaleY(0.82);
+        max-height: 0;
+        margin-bottom: 0;
+    }
+    55% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+        max-height: 260px;
+        margin-bottom: 18px;
+    }
+}
+
+@keyframes sq-slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(26px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes sq-squeeze {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    38% {
+        transform: scale3d(0.9, 1.09, 1);
+    }
+    70% {
+        transform: scale3d(1.03, 0.97, 1);
+    }
+    100% {
+        transform: scale3d(0.985, 1.015, 1);
+    }
+}
+
+@keyframes sq-squeeze-label {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    38% {
+        transform: scale3d(1.11, 0.92, 1);
+    }
+    70% {
+        transform: scale3d(0.97, 1.03, 1);
+    }
+    100% {
+        transform: scale3d(1.015, 0.985, 1);
+    }
+}
+
+@keyframes sq-fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

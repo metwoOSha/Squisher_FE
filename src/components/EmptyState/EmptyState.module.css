@@ -1,0 +1,20 @@
+.empty {
+    background: var(--paper-card);
+    border: 1.5px dashed var(--border-dashed);
+    border-radius: var(--radius-lg);
+    padding: 44px 22px;
+    text-align: center;
+}
+
+.title {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    color: var(--ink);
+}
+
+.hint {
+    margin-top: 6px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--ink-muted);
+}
