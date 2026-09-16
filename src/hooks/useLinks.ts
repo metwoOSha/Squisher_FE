@@ -24,6 +24,9 @@ export function useLinks() {
     const [error, setError] = useState<string | null>(null);
 
     const fetchLinks = useCallback(async () => {
+        /* Also runs on sign-in/out, where the list is swapped — show placeholders again. */
+        setIsLoading(true);
+
         try {
             setLinks(await withClicks(await getMyLinks()));
             setError(null);

@@ -22,3 +22,25 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+/* Placeholder block for loading states — paired with the sq-shimmer keyframes. */
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--paper-sunken) 0%,
+        var(--paper-sunken) 28%,
+        var(--paper-card-hover) 50%,
+        var(--paper-sunken) 72%,
+        var(--paper-sunken) 100%
+    );
+    background-size: 220% 100%;
+    border-radius: var(--radius-sm);
+    animation: sq-shimmer 1.5s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .skeleton {
+        animation: none;
+        background: var(--paper-sunken);
+    }
+}

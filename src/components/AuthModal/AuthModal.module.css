@@ -37,10 +37,6 @@
     margin: 0 0 8px 2px;
 }
 
-.labelSpaced {
-    margin-top: 16px;
-}
-
 .input {
     width: 100%;
     border: 1.5px solid var(--border-light);

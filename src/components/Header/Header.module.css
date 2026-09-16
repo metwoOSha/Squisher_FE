@@ -14,6 +14,9 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    /* Height of the tallest account state (the sign-in button), so resolving
+       the session never resizes the header — placeholder and pill just centre. */
+    min-height: 40px;
 }
 
 .signIn {
@@ -44,4 +47,27 @@
         width: 100%;
         justify-content: space-between;
     }
+}
+
+/* Same pill footprint as UserMenu's trigger, so the header doesn't shift on resolve. */
+.accountSkeleton {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 16px 6px 6px;
+    border: 1.5px dashed var(--border-dashed);
+    border-radius: var(--radius-pill);
+}
+
+.skeletonMark {
+    flex: none;
+    width: 26px;
+    height: 21px;
+    border-radius: var(--radius-pill);
+}
+
+.skeletonText {
+    width: 104px;
+    height: 11px;
+    border-radius: var(--radius-pill);
 }

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { FormEvent } from 'react';
 import clsx from 'clsx';
 import ModalOverlay from '@/components/ModalOverlay/ModalOverlay';
+import PasswordField from '@/components/PasswordField/PasswordField';
 import { MIN_PASSWORD_LENGTH } from '@/config';
 import { useAuth } from '@/hooks/useAuth';
 import type { AuthMode } from '@/types/user.types';
@@ -98,34 +99,22 @@ export default function AuthModal({ onClose }: AuthModalProps) {
                     onChange={(event) => setEmail(event.target.value)}
                 />
 
-                <label className={clsx(cls.label, cls.labelSpaced)} htmlFor="auth-password">
-                    Password
-                </label>
-                <input
+                <PasswordField
                     id="auth-password"
-                    className={cls.input}
-                    type="password"
+                    label="Password"
                     autoComplete={isRegister ? 'new-password' : 'current-password'}
-                    placeholder="••••••••"
                     value={password}
-                    onChange={(event) => setPassword(event.target.value)}
+                    onChange={setPassword}
                 />
 
                 {isRegister && (
-                    <div>
-                        <label className={clsx(cls.label, cls.labelSpaced)} htmlFor="auth-repeat">
-                            Repeat password
-                        </label>
-                        <input
-                            id="auth-repeat"
-                            className={cls.input}
-                            type="password"
-                            autoComplete="new-password"
-                            placeholder="••••••••"
-                            value={repeatPassword}
-                            onChange={(event) => setRepeatPassword(event.target.value)}
-                        />
-                    </div>
+                    <PasswordField
+                        id="auth-repeat"
+                        label="Repeat password"
+                        autoComplete="new-password"
+                        value={repeatPassword}
+                        onChange={setRepeatPassword}
+                    />
                 )}
 
                 {error && <p className={cls.error}>{error}</p>}

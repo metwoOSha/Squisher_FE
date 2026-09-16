@@ -4,12 +4,16 @@ export const API_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:3000';
 export const API_PREFIX = '/api';
 
 /**
- * Where the short links actually resolve. The redirect lives at
- * GET /links/:shortCode on the NestJS side, so the origin includes /links.
+ * Where the short links actually resolve. The NestJS side currently serves the
+ * redirect only at GET /links/:shortCode — a bare GET /:shortCode answers 404 —
+ * so the default origin has to carry that /links segment or copied links break.
+ *
+ * Set VITE_SHORT_LINK_ORIGIN to drop it (once the backend answers the bare route)
+ * or to point at a short domain, giving the "squish.li/a7f2kq" form the design shows.
  */
-export const SHORT_LINK_ORIGIN = `${API_URL}/links`;
+export const SHORT_LINK_ORIGIN = import.meta.env.VITE_SHORT_LINK_ORIGIN ?? `${API_URL}/links`;
 
-/** Protocol-less form shown in the UI, e.g. "localhost:3000/links/". */
+/** Protocol-less form shown in the UI, e.g. "squish.li/". */
 export const SHORT_DOMAIN_LABEL = `${SHORT_LINK_ORIGIN.replace(/^https?:\/\//, '')}/`;
 
 export const MIN_PASSWORD_LENGTH = 6;
